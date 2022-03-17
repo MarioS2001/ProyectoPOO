@@ -13,54 +13,7 @@ public class FuncionamientoElectrico{
 		totalwatts= IntStream.of(consumo.getMw()).sum();
 		return totalwatts;
 	}
-	
-	public int[] wattsGenerador(Consumo consumo, String nombre) {
-		int cc = 0,cs = 0;
-		switch(nombre) {
-		case "Loja":
-			consumo.consumoCiudadSopladora(nombre);
-			cs = wattsCiudad(consumo);
-			break;
-		case "Guayaquil","Quito":
-			consumo.consumoCiudadCoca(nombre);
-			cc = wattsCiudad(consumo);
-			consumo.consumoCiudadSopladora(nombre);
-			cs = wattsCiudad(consumo);
-			break;
-		}
-		int consumos[]= {cc,cs};
-		return consumos;
-	}
-	
-	public double valorRegion(Consumo consumo, Region region) {
-		String nombre_ciu= "";
-		switch(region.getID()) {
-		case "1":
-			nombre_ciu= "Guayaquil";
-			consumo= new Consumo("1", nombre_ciu);
-			consumo.consumoCiudadCoca(nombre_ciu);
-			precio= wattsCiudad(consumo)*consumo.getTarifa();
-			consumo.consumoCiudadSopladora(nombre_ciu);
-			precio= precio+wattsCiudad(consumo)*consumo.getTarifa();
-			break;
-		case "2":
-			nombre_ciu= "Quito";
-			consumo= new Consumo("1", nombre_ciu);
-			consumo.consumoCiudadCoca(nombre_ciu);
-			precio= wattsCiudad(consumo)*consumo.getTarifa();
-			consumo.consumoCiudadSopladora(nombre_ciu);
-			precio= precio+wattsCiudad(consumo)*consumo.getTarifa();
-			nombre_ciu= "Loja";
-			consumo= new Consumo("1", nombre_ciu);
-			consumo.consumoCiudadSopladora(nombre_ciu);
-			precio= precio+wattsCiudad(consumo)*consumo.getTarifa();
-			break;
-		case "3":
-			precio=0;
-		}
-		return precio;
-	}
-	
+
 	public double[] valorMensual(int mes, Consumo consumo) { 
 		double valorc, valors;
 		consumo= new Consumo("1", "Guayaquil");
