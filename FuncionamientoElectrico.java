@@ -36,4 +36,34 @@ public class FuncionamientoElectrico{
 		return inf_mensual;
 	}
 	
+	public double valorRegion(Consumo consumo, Region region) {
+		String nombre_ciu= "";
+		switch(region.getID()) {
+		case "1":
+			nombre_ciu= "Guayaquil";
+			consumo= new Consumo("1", nombre_ciu);
+			consumo.consumoCiudadCoca(nombre_ciu);
+			precio= wattsCiudad(consumo)*consumo.getTarifa();
+			consumo.consumoCiudadSopladora(nombre_ciu);
+			precio= precio+wattsCiudad(consumo)*consumo.getTarifa();
+			break;
+		case "2":
+			nombre_ciu= "Quito";
+			consumo= new Consumo("1", nombre_ciu);
+			consumo.consumoCiudadCoca(nombre_ciu);
+			precio= wattsCiudad(consumo)*consumo.getTarifa();
+			consumo.consumoCiudadSopladora(nombre_ciu);
+			precio= precio+wattsCiudad(consumo)*consumo.getTarifa();
+			nombre_ciu= "Loja";
+			consumo= new Consumo("1", nombre_ciu);
+			consumo.consumoCiudadSopladora(nombre_ciu);
+			precio= precio+wattsCiudad(consumo)*consumo.getTarifa();
+			break;
+		case "3":
+			precio=0;
+		}
+		return precio;
+	}
+	
+	
 }
