@@ -65,5 +65,20 @@ public class FuncionamientoElectrico{
 		return precio;
 	}
 	
+	public int getTotalwatts() {
+		return totalwatts;
+	}
+
+	public void setTotalwatts(int totalwatts) {
+		this.totalwatts = totalwatts;
+	}
+
+	public double getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(double precio) {
+		this.precio = precio;
+	}
 	
 }
