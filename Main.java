@@ -125,6 +125,37 @@ public class Main {
 			case "2":
 				break;
 			case "3":
+					System.out.println("\n\t\t\t     -- Dinero recaudado por región --");
+				do {
+					System.out.print("\nSeleccione la región a consultar: ");
+					System.out.println("\n1. Costa\n2. Sierra\n3. Oriente");
+					System.out.print("\nElija una opción: ");
+					leer= new Scanner(System.in);
+					region= leer.nextLine();
+					switch(region) {
+					case "1":
+						nom_region= "Costa";
+						reg= new Region(region, nom_region);
+						c=0;
+						break;
+					case "2":
+						nom_region= "Sierra";
+						reg= new Region(region, nom_region);
+						c=0;
+						break;
+					case "3":
+						nom_region= "Oriente";
+						reg= new Region(region, nom_region);
+						c=0;
+						break;
+					default:
+						System.out.println("\nRegión incorrecta");
+						c=4;
+					}
+				}while(c==4);
+				System.out.println("\n        -- Información --");
+				System.out.println("\n   "+reg.toString());
+				System.out.println("   Dinero recaudado: $"+fun.valorRegion(cons, reg));
 				break;
 			case "4":
 					System.out.println("\n\t\t    -- Dinero generado por mes en las respectivas plantas --");
