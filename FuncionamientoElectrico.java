@@ -65,6 +65,24 @@ public class FuncionamientoElectrico{
 		return precio;
 	}
 	
+		public int[] wattsGenerador(Consumo consumo, String nombre) {
+		int cc = 0,cs = 0;
+		switch(nombre) {
+		case "Loja":
+			consumo.consumoCiudadSopladora(nombre);
+			cs = wattsCiudad(consumo);
+			break;
+		case "Guayaquil","Quito":
+			consumo.consumoCiudadCoca(nombre);
+			cc = wattsCiudad(consumo);
+			consumo.consumoCiudadSopladora(nombre);
+			cs = wattsCiudad(consumo);
+			break;
+		}
+		int consumos[]= {cc,cs};
+		return consumos;
+	}
+	
 	public int getTotalwatts() {
 		return totalwatts;
 	}
