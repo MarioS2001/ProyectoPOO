@@ -123,6 +123,34 @@ public class Main {
 					}while(c==3);
 				break;
 			case "2":
+					do {
+					leer= new Scanner(System.in);
+					System.out.println("\n\t-- Total de megavatios dados por la planta respectiva a la ciudad ingresada --");
+					System.out.print("\nIngresa el nombre de la ciudad: ");
+					nom_ciudad= leer.nextLine();
+					System.out.println("\n        -- Información --");
+					switch(nom_ciudad) {
+					case "Guayaquil", "Quito", "Loja":
+						cons= new Consumo("", nom_ciudad);
+						con_Generador= fun.wattsGenerador(cons, nom_ciudad);
+						switch(nom_ciudad) {
+						case "Loja":
+							System.out.println("\n   "+cons.toString());
+							System.out.println("\n   Compañía: Sopladora");
+							System.out.println("   Total de megavatios: " + con_Generador[1]);
+							break;
+						default:
+							System.out.println("\n   "+cons.toString());
+							System.out.println("\n   Compañía: Sopladora");
+							System.out.println("   Total de megavatios: " + con_Generador[1]);
+							System.out.println("\n   Compañía: Coca Codo Sinclair");
+							System.out.println("   Total de megavatios: " + con_Generador[0]);
+						}
+						break;
+					default:
+						System.out.println("\n   La ciudad de "+ nom_ciudad + " no pertenece a ninguna planta");
+					}
+				}while(c==4);
 				break;
 			case "3":
 					System.out.println("\n\t\t\t     -- Dinero recaudado por región --");
